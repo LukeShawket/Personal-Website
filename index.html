@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luke Shawket</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <style>
+    #chatToggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    #chatWindow {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 320px;
+      max-height: 500px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      display: none;
+      flex-direction: column;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    #chatHeader {
+      background: #0077cc;
+      color: white;
+      padding: 10px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      font-weight: bold;
+    }
+
+    #chatMessages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      font-family: sans-serif;
+      font-size: 14px;
+    }
+
+    #chatInputArea {
+      display: flex;
+      padding: 10px;
+      border-top: 1px solid #ccc;
+    }
+
+    #chatInput {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+
+<body>
+    
+    <!-- Header -->
+    <section class="bg-dark text-white py-1">
+        <div class="container"> 
+            <header class="d-flex justify-content-center py-3"> 
+                <ul class="nav nav-pills"> <li class="nav-item">
+                    <a href="#" class="nav-link active" aria-current="page">Home</a></li> 
+                    <li class="nav-item"><a href="#" class="nav-link">Work</a></li> 
+                    <li class="nav-item"><a href="#" class="nav-link">Experience</a></li> 
+                    <li class="nav-item"><a href="#" class="nav-link">Skills</a></li> 
+                    <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+                </ul> 
+            </header> 
+        </div>
+    </section>
+
+    <!-- Hero -->
+        <section class="shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="container col-xxl-8 px-4 py-5">
+                <div class="row align-items-center g-5 py-5"> <!-- Removed flex-lg-row-reverse -->
+                    <div class="col-10 col-sm-8 col-lg-6">
+                        <img src="images/me.png" class="d-block mx-lg-auto img-fluid" alt="Your Hero Image" width="300" height="300" loading="lazy">
+                    </div>
+                    <div class="col-lg-6">
+                        <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Hi, I'm Luke Shawket</h1>
+                        <p class="lead">Aspiring coder and analyst. Love solving problems and turning data into clear,
+                            actionable insights. Always learning new tools, refining workflows,
+                            and building things that make life a little more efficient.
+                        </p>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                            <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
+                            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Work Section -->
+    <section class="shadow-lg mb-5 bg-white rounded">
+        <div class="texture-wrapper">
+            <div class="container"> 
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"> 
+                    <div class="col"> 
+                        <div class="card shadow-sm"> 
+                            <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img card-img-top" height="225" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg">
+                                <title>Placeholder</title>
+                                <rect width="100%" height="100%" fill="#55595c"></rect>
+                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                            </svg> 
+                            <div class="card-body"> 
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. 
+                                    This content is a little bit longer.
+                                </p> 
+                                <div class="d-flex justify-content-between align-items-center"> 
+                                    <div class="btn-group"> 
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    </div> 
+                                    <small class="text-body-secondary">9 mins</small> 
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div>
+                    <div class="col"> 
+                        <div class="card shadow-sm"> 
+                            <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img card-img-top" height="225" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg">
+                                <title>Placeholder</title>
+                                <rect width="100%" height="100%" fill="#55595c"></rect>
+                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                            </svg> 
+                            <div class="card-body"> 
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. 
+                                    This content is a little bit longer.
+                                </p> 
+                                <div class="d-flex justify-content-between align-items-center"> 
+                                    <div class="btn-group"> 
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    </div> 
+                                    <small class="text-body-secondary">9 mins</small> 
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div>
+                    <div class="col"> 
+                        <div class="card shadow-sm"> 
+                            <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img card-img-top" height="225" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg">
+                                <title>Placeholder</title>
+                                <rect width="100%" height="100%" fill="#55595c"></rect>
+                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                            </svg> 
+                            <div class="card-body"> 
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. 
+                                    This content is a little bit longer.
+                                </p> 
+                                <div class="d-flex justify-content-between align-items-center"> 
+                                    <div class="btn-group"> 
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    </div> 
+                                    <small class="text-body-secondary">9 mins</small> 
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div>
+                    <div class="col"> 
+                        <div class="card shadow-sm"> 
+                            <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img card-img-top" height="225" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg">
+                                <title>Placeholder</title>
+                                <rect width="100%" height="100%" fill="#55595c"></rect>
+                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                            </svg> 
+                            <div class="card-body"> 
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. 
+                                    This content is a little bit longer.
+                                </p> 
+                                <div class="d-flex justify-content-between align-items-center"> 
+                                    <div class="btn-group"> 
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    </div> 
+                                    <small class="text-body-secondary">9 mins</small> 
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div>
+                    <div class="col"> 
+                        <div class="card shadow-sm"> 
+                            <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img card-img-top" height="225" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg">
+                                <title>Placeholder</title>
+                                <rect width="100%" height="100%" fill="#55595c"></rect>
+                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                            </svg> 
+                            <div class="card-body"> 
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. 
+                                    This content is a little bit longer.
+                                </p> 
+                                <div class="d-flex justify-content-between align-items-center"> 
+                                    <div class="btn-group"> 
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    </div> 
+                                    <small class="text-body-secondary">9 mins</small> 
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div>
+                    <div class="col"> 
+                        <div class="card shadow-sm"> 
+                            <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img card-img-top" height="225" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg">
+                                <title>Placeholder</title>
+                                <rect width="100%" height="100%" fill="#55595c"></rect>
+                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                            </svg> 
+                            <div class="card-body"> 
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. 
+                                    This content is a little bit longer.
+                                </p> 
+                                <div class="d-flex justify-content-between align-items-center"> 
+                                    <div class="btn-group"> 
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    </div> 
+                                    <small class="text-body-secondary">9 mins</small> 
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+
+    <section class="shadow-lg mb-5 bg-white rounded">
+        <div class="texture-wrapper">
+            <div class="container">
+                <div class="page-header">
+                    <h1 id="timeline">Timeline</h1>
+                </div>
+                <ul class="timeline">
+                    <li>
+                    <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                        <h4 class="timeline-title">2002 – 2015</h4>
+                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>School Years</small></p>
+                        </div>
+                        <div class="timeline-body">
+                        <p>Started school and graduated from high school in my hometown. These years helped shape my worldview and sparked my curiosity about how things work.</p>
+                        </div>
+                    </div>
+                    </li>
+                    <li class="timeline-inverted">
+                    <div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                        <h4 class="timeline-title">2015 - 2017</h4>
+                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>Xinjiang Normal University</small></p>
+                        </div>
+                        <div class="timeline-body">
+                        <p>Completed a two-year program focused on Mandarin proficiency and cultural understanding prior to entering a four-year university.</p>
+                        </div>
+                    </div>
+                    </li>
+                    <li>
+                    <div class="timeline-badge danger"><i class="glyphicon glyphicon-credit-card"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                        <h4 class="timeline-title">2017 - 2021</h4>
+                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>China University of Petroleum(East China)<br>Bachelor’s Degree</small></p>
+                        </div>
+                        <div class="timeline-body">
+                        <p>Earned my degree in Public Administration. During this time, I began teaching myself Python, C# and English, exploring programming, data analysis alongside my studies.</p>
+                        </div>
+                    </div>
+                    </li>
+                    <li class="timeline-inverted">
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                        <h4 class="timeline-title">Jul 2021 - Oct 2022</h4>
+                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>Non-Tech Roles</small></p>
+                        </div>
+                        <div class="timeline-body">
+                        <p>Worked as an E-commerce Coordinator and English Customer Service Specialist at Chongqing Cosmetics Co. and China Mobile, across cities including Chongqing and Guangzhou. These roles strengthened my communication skills and cross-cultural experience while I continued building my tech skills independently.</p>
+                        </div>
+                    </div>
+                    </li>
+                    <li>
+                    <div class="timeline-badge info"><i class="glyphicon glyphicon-floppy-disk"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                        <h4 class="timeline-title">Oct 2022 – Jul 2024</h4>
+                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>Huayu Internet Technology</small></p>
+                        </div>
+                        <div class="timeline-body">
+                        <p>Cleaned and analyzed large datasets using Excel, SQL, and Python to uncover user behavior insights—driving improvements in retention, monetization, and acquisition strategies. 
+                            Collaborated with cross-functional teams to design dashboards and performance tracking systems that informed product updates and identified growth opportunities.</p>
+                        </div>
+                    </div>
+                    </li>
+                    
+                    <li class="timeline-inverted">
+                    <div class="timeline-badge success"><i class="glyphicon glyphicon-thumbs-up"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                        <h4 class="timeline-title">Oct 2024 – Present</h4>
+                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>Sales Associate<br>Eyeglass World</small></p>
+                        </div>
+                        <div class="timeline-body">
+                        <p>Joined Eyeglass World, supporting customers with eyewear selection and service. Strengthened communication skills and cross-cultural presentation skills while continuing to build technical projects outside of work.</p>
+                        </div>
+                    </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    
+    <button onclick="toggleChat()" id="chatToggle">💬</button>
+    
+    <div id="chatWindow">
+        <div id="chatHeader">💬 Chat with AI Luke</div>
+        <div id="chatMessages"></div>
+        <div id="chatInputArea">
+        <input id="chatInput" placeholder="Type your message..." />
+        <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleChat() {
+        console.log("Toggle clicked");
+        const chat = document.getElementById("chatWindow");
+        chat.style.display = chat.style.display === "none" ? "flex" : "none";
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById("chatInput");
+            const message = input.value.trim();
+            if (!message) return;
+
+            appendMessage("user", message);
+            input.value = "";
+
+            try {
+            const res = await fetch("http://localhost:8000/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message })
+            });
+
+            const data = await res.json();
+            appendMessage("bot", data.reply || "Feruq is ignoring you.");
+            } catch (err) {
+            console.error("Error:", err);
+            appendMessage("bot", "Feruq crashed. Probably your fault.");
+            }
+        }
+
+        function appendMessage(sender, text) {
+            const chatMessages = document.getElementById("chatMessages");
+            const msg = document.createElement("div");
+            msg.className = sender === "user" ? "user-message" : "bot-message";
+            msg.textContent = text;
+            chatMessages.appendChild(msg);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Optional: Send on Enter key
+        document.getElementById("chatInput").addEventListener("keydown", function (e) {
+            if (e.key === "Enter") sendMessage();
+        });
+    </script>
+
+</body>
+</html>
